@@ -1,0 +1,18 @@
+Changing the default password policy
+
+> sudo visudo
+
+At the file I had changed the line:
+
+-> Defaults env_reset
+for
+-> Defaults env_reset,authenticate,timestamp_timeout=10
+
+Then changed the file /etc/sudoers.d/010_pi-nopasswd:
+
+-> pi ALL=(ALL) NOPASSWD: ALL
+for
+-> pi ALL=(ALL) PASSWD: ALL
+
+
+For more informations, see man sudoers
